@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="청렴 신고 사건 현황과 정책브리핑 보도자료를 한눈에 확인하는 대시보드">
+  <title>청렴 신고 현황 대시보드</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="청렴 신고 현황 홈">
+      <span class="brand-mark" aria-hidden="true">正</span>
+      <span>청렴 데이터 모니터</span>
+    </a>
+    <nav aria-label="주요 메뉴">
+      <a href="#cases">신고 현황</a><a href="#news">보도자료</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">INTEGRITY MONITORING</p>
+        <h1>청렴 신고 현황을<br><span>명확하게 확인하세요</span></h1>
+        <p class="hero-copy">신고 사건 500건을 유형과 처리상태별로 탐색하고, 청렴교육 현황과 정부 보도자료를 함께 확인할 수 있습니다.</p>
+      </div>
+      <div class="summary" aria-label="주요 지표">
+        <article><span>전체 신고</span><strong id="totalCases">—</strong><small>건</small></article>
+        <article><span>처리 완료</span><strong id="completeCases">—</strong><small>건</small></article>
+        <article><span>교육 평균 이수율</span><strong id="educationRate">—</strong><small>%</small></article>
+      </div>
+    </section>
+
+    <section class="cases section" id="cases">
+      <div class="section-heading">
+        <div><p class="eyebrow">REPORTS</p><h2>신고 사건</h2></div>
+        <p id="resultCount" class="result-count" aria-live="polite">결과 0건</p>
+      </div>
+
+      <div class="filters" aria-label="신고 사건 필터">
+        <label>신고유형<select id="typeFilter"><option value="">전체 유형</option></select></label>
+        <label>처리상태<select id="statusFilter"><option value="">전체 상태</option></select></label>
+        <button id="resetFilters" type="button">필터 초기화</button>
+      </div>
+
+      <div id="caseGrid" class="case-grid" aria-live="polite"></div>
+      <div class="pagination" id="pagination" aria-label="페이지 이동"></div>
+    </section>
+
+    <section class="news section" id="news">
+      <div class="section-heading">
+        <div><p class="eyebrow">KOREA.KR</p><h2>최신 보도자료</h2></div>
+        <a class="source-link" href="https://www.korea.kr/rss/pressrelease.xml" target="_blank" rel="noopener">RSS 출처 보기</a>
+      </div>
+      <p class="feed-note">대한민국 정책브리핑 보도자료 RSS 피드의 최신 목록입니다. RSS 서비스 종료에 따라 2026년 10월 15일 공식 보도자료 목록을 기준으로 표시합니다.</p>
+      <div id="newsList" class="news-list"></div>
+    </section>
+  </main>
+
+  <footer><span>청렴 데이터 모니터</span><span>데이터 기준: 첨부 CSV 및 korea.kr</span></footer>
+  <script src="app.js"></script>
+</body>
+</html>
